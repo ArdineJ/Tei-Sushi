@@ -21,7 +21,7 @@ class MyButton extends StatelessWidget {
             children: [
               Text(
                 txt,
-                style: TextStyle(color: Colors.white),
+                style: const TextStyle(color: Colors.white),
               ),
               const SizedBox(width: 8),
               const Icon(

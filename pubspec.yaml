@@ -38,6 +38,8 @@ dependencies:
   google_fonts:
   anim_search_bar: ^2.0.3
   flutter_staggered_animations: ^1.1.1
+  shared_preferences: ^2.0.12
+  provider:
 
 dev_dependencies:
   flutter_test:

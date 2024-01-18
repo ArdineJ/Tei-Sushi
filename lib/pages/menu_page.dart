@@ -32,15 +32,26 @@ class _MenuPageState extends State<MenuPage> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
+        foregroundColor: Colors.grey[900],
         elevation: 0,
-        leading: Icon(
+        leading: const Icon(
           Icons.menu_sharp,
-          color: Colors.grey[900],
         ),
         title: Text(
           'Tokyo',
-          style: GoogleFonts.lato(color: Colors.grey[900]),
+          style: GoogleFonts.lato(),
         ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 20),
+            child: IconButton(
+              icon: const Icon(Icons.shopping_cart),
+              onPressed: () {
+                Navigator.pushNamed(context, '/cartpage');
+              },
+            ),
+          ),
+        ],
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -72,7 +83,7 @@ class _MenuPageState extends State<MenuPage> {
             AnimatedSmoothIndicator(
               activeIndex: myCurrentIndex,
               count: promoList.getPromoList().length,
-              effect: SwapEffect(
+              effect: ExpandingDotsEffect(
                 dotHeight: 8,
                 dotWidth: 8,
                 spacing: 5,
@@ -156,5 +167,11 @@ class _MenuPageState extends State<MenuPage> {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    textController.dispose();
+    super.dispose();
   }
 }

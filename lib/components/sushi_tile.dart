@@ -13,6 +13,7 @@ class SushiTile extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Card(
+        color: const Color.fromARGB(255, 255, 255, 255),
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Column(
@@ -39,7 +40,7 @@ class SushiTile extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      sushi.price,
+                      sushi.price.toString(),
                       style: GoogleFonts.lato(
                           fontSize: 14, fontWeight: FontWeight.bold),
                     ),

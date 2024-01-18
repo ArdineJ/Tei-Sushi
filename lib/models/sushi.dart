@@ -1,6 +1,6 @@
 class Sushi {
   final String name;
-  final String price;
+  final double price;
   final double rating;
   final String description;
   final String image;
