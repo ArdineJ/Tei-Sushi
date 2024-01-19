@@ -4,8 +4,10 @@ import 'package:sushi/models/sushi.dart';
 class CartItem {
   final Sushi sushi;
   int quantity;
+  double totalPrice;
 
-  CartItem({required this.sushi, required this.quantity});
+  CartItem(
+      {required this.sushi, required this.quantity, required this.totalPrice});
 }
 
 class Cart extends ChangeNotifier {
@@ -13,8 +15,18 @@ class Cart extends ChangeNotifier {
 
   List<CartItem> get items => _items;
 
+  double getTotalPrice() {
+    double total = 0.0;
+    for (var item in _items) {
+      total += item.totalPrice;
+    }
+    return total;
+  }
+
   void addItemsCart(Sushi sushi, int quantity) {
-    _items.add(CartItem(sushi: sushi, quantity: quantity));
+    var totalPrice = sushi.price * quantity;
+    _items.add(
+        CartItem(sushi: sushi, quantity: quantity, totalPrice: totalPrice));
     notifyListeners();
   }
 
@@ -23,10 +35,10 @@ class Cart extends ChangeNotifier {
     notifyListeners();
   }
 
-  void updateCartItemQuantity(int index, int newQuantity) {
-    if (index >= 0 && index < _items.length) {
-      _items[index].quantity = newQuantity;
-      notifyListeners();
-    }
+  void updateCartItemQuantity(Sushi sushi, int newQuantity) {
+    var value = _items.firstWhere((item) => item.sushi == sushi);
+    value.quantity = newQuantity;
+    value.totalPrice = sushi.price * newQuantity;
+    notifyListeners();
   }
 }

@@ -161,7 +161,7 @@ class _DetailPageState extends State<DetailPage> {
                     ),
                     const SizedBox(height: 20),
                     MyButton(
-                      txt: 'Add to Cart',
+                      txt: '\$ ${value.getTotalPrice().toStringAsFixed(2)} Add to Cart',
                       onTap: addToCart,
                     )
                   ],

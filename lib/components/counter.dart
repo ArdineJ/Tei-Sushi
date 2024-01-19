@@ -25,7 +25,7 @@ class Counter extends StatelessWidget {
           ),
         ),
         SizedBox(
-          width: 30,
+          width: 25,
           child: Center(
             child: Text(
               qty.toString(),

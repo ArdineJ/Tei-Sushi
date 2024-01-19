@@ -53,7 +53,7 @@ class _MyCartItemsState extends State<MyCartItems> {
               borderRadius: BorderRadius.circular(15),
               child: Image.asset(
                 widget.cart.sushi.image,
-                height: 100,
+                height: 90,
                 fit: BoxFit.cover,
               ),
             ),
