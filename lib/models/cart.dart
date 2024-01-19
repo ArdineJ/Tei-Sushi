@@ -31,12 +31,17 @@ class Cart extends ChangeNotifier {
   }
 
   void removeItem(Sushi sushi) {
-    _items.removeWhere((item) => item.sushi == sushi);
+    _items.removeWhere((item) => item.sushi.id == sushi.id);
+    notifyListeners();
+  }
+
+  void removeAllItems() {
+    _items.clear();
     notifyListeners();
   }
 
   void updateCartItemQuantity(Sushi sushi, int newQuantity) {
-    var value = _items.firstWhere((item) => item.sushi == sushi);
+    var value = _items.firstWhere((item) => item.sushi.id == sushi.id);
     value.quantity = newQuantity;
     value.totalPrice = sushi.price * newQuantity;
     notifyListeners();

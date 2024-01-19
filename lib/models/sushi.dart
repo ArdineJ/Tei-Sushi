@@ -1,4 +1,5 @@
 class Sushi {
+  final int id;
   final String name;
   final double price;
   final double rating;
@@ -6,6 +7,7 @@ class Sushi {
   final String image;
 
   Sushi({
+    required this.id,
     required this.name,
     required this.price,
     required this.rating,

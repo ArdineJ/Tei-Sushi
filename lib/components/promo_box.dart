@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:sushi/components/my_button.dart';
 
 class PromoBox extends StatelessWidget {
@@ -12,7 +13,7 @@ class PromoBox extends StatelessWidget {
     return InkWell(
       borderRadius: BorderRadius.circular(10),
       child: Container(
-        padding: EdgeInsets.all(25),
+        padding: const EdgeInsets.all(25),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           gradient: LinearGradient(
@@ -37,7 +38,9 @@ class PromoBox extends StatelessWidget {
                   ),
                   MyButton(
                     txt: 'Redeem',
-                    onTap: () {},
+                    onTap: () {
+                      Share.share('Ada promo $disc mauu!!');
+                    },
                   )
                 ],
               ),

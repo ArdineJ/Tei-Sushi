@@ -56,11 +56,18 @@ class _DetailPageState extends State<DetailPage> {
           ),
           actions: [
             ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor:
+                    MaterialStateProperty.all<Color>(Colors.red.shade400),
+              ),
               onPressed: () {
                 Navigator.pop(context);
                 Navigator.pushNamed(context, '/menupage');
               },
-              child: const Text('OK'),
+              child: const Text(
+                'OK',
+                style: TextStyle(color: Colors.white),
+              ),
             ),
           ],
         ),
@@ -145,7 +152,7 @@ class _DetailPageState extends State<DetailPage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          sushi.price.toString(),
+                          '\$${sushi.price.toString()}',
                           style: GoogleFonts.lato(
                             color: Colors.white,
                             fontWeight: FontWeight.w900,
@@ -161,7 +168,7 @@ class _DetailPageState extends State<DetailPage> {
                     ),
                     const SizedBox(height: 20),
                     MyButton(
-                      txt: '\$ ${value.getTotalPrice().toStringAsFixed(2)} Add to Cart',
+                      txt: 'Add to Cart',
                       onTap: addToCart,
                     )
                   ],

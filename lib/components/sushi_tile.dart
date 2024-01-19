@@ -40,7 +40,7 @@ class SushiTile extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      '\$ ${sushi.price.toString()}',
+                      '\$${sushi.price.toString()}',
                       style: GoogleFonts.lato(
                           fontSize: 14, fontWeight: FontWeight.bold),
                     ),
